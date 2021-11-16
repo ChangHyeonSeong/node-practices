@@ -1,6 +1,6 @@
 const connect = require('connect');
 const serverStatic = require('serve-static');
-const connectRoute = require('connect-route');
+const connectRoute = require('connect-route'); //route 디스패쳐 해준다
 
 const port = 9999;
 const app = connect();
