@@ -7,15 +7,15 @@
 [mysite] $ npm i ejs     o
 [mysite] $ npm i express -session
 [mysite] $ npm i sequelize
-[mysite] $ npm i dotenv
+[mysite] $ npm i dotenv  o
 [mysite] $ npm i multer
 [mysite] $ npm i winston
 [mysite] $ npm i winston-daily-rotate-file
 [mysite] $ npm i moment
 
-[mysite] $ npm -D nodemon
-[mysite] $ npm -D mocha
-[mysite] $ npm -D chai
+[mysite] $ npm i -D nodemon
+[mysite] $ npm i -D mocha
+[mysite] $ npm i -D chai
 
 
 

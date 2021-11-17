@@ -1,0 +1,22 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "```bash\r [mysite] $ npm i express o\r [mysite] $ npm i ejs     o\r [mysite] $ npm i express -session\r [mysite] $ npm i sequelize\r [mysite] $ npm i dotenv  o\r [mysite] $ npm i multer\r [mysite] $ npm i winston\r [mysite] $ npm i winston-daily-rotate-file\r [mysite] $ npm i moment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon index.js",
+    "test": "npx mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
