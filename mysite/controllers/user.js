@@ -49,6 +49,7 @@ module.exports = {
         }
     },
     logout: async function(req, res, next) {
+        
         try {
             await req.session.destroy();
             res.redirect('/');

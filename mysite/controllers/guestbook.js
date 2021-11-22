@@ -1,31 +1,47 @@
 const moment = require('moment');
 const models = require('../models');
 
-module.exports =  {
-    index: function(req, res, next) {
-        try{
-            const results = models.Guestbook.findAll({
-                attributes: ['', '', ''],
+module.exports = {
+    index: async function(req, res, next) {
+        console.log('guestbook controller index called .... ');
+        try { 
+            const results = await models.Guestbook.findAll({
+                attributes: ['no', 'name', 'message', 'regDate'],
                 order: [
                     ['no', 'DESC']
                 ]
             });
-
-            res.render('guestbook.index', {results, moment});
-
-            //moment(vo.regDate).format('YYYY-MMM-DD hh:mm:ss')
-        } catch(e) {
+            res.render('guestbook/index', {
+                guestbooks: results,
+                moment: moment
+            });
+        } catch(e) { 
             next(e);
-        }
+        }         
     },
-    _delete: function(req, res, next) {
-        try{
-            models.Guestbook.destroy({
+    spalanding: function(req, res, next){
+        res.render('guestbook/spa-landing');
+    },
+    delete: function(req, res) {
+        res.render('guestbook/delete');
+    },
+    _delete: async function(req, res, next) {
+        try { 
+            await models.Guestbook.destroy({
                 where: req.body
             });
-            models.Guestbook.create(req.body);
+            res.redirect('/guestbook');
         } catch(e) {
             next(e);
-        }
-    }
+        }   
+    },
+    add: async function(req, res, next) {
+        try {        
+            await models.Guestbook.create(req.body);
+            res.redirect('/guestbook');
+        } catch(e) {
+            next(e);
+        }        
+    },
+
 }

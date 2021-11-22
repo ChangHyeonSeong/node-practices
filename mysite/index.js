@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const dotenv = require('dotenv');
-
+const multer = require('multer');
 
 // 1. Enviroment Variables
 dotenv.config({ path: path.join(__dirname, 'config/app.env') });
@@ -27,7 +27,12 @@ const application = express()
     // 4-2. request body parser
     .use(express.urlencoded({extended: true}))  // application/x-www-form-urlencoded
     .use(express.json())                       // application/json
+    
     // 4-3. Multipart
+    .use(multer({
+        dest: path.join(__dirname, process.env.MULTER_TEMPORARY_STORE)
+    }).single('file'))
+
 
     // 4-4. static resources
     .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY) ))
@@ -48,14 +53,17 @@ http.createServer(application)
     .on('error', function(error){
         switch(error.code) {
             case 'EACCESS':
-                loggerconsole.error(`${process.env.PORT} requires privileges`);
+                console.error(`${process.env.PORT} requires privileges`);
+                logger.error(`${process.env.PORT} requires privileges`);
                 process.exit(1);
                 break;
             case 'EADDRINUSE':
+                console.error(`${process.env.PORT} is already in use`);
                 logger.error(`${process.env.PORT} is already in use`);
                 process.exit(1);
                 break;
             default:
+                console.error('error : ' + error);
                 logger.error('error : ' + error);
                 throw error;        
         }

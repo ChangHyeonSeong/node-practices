@@ -36,7 +36,7 @@ module.exports = function(sequelize){
         },
         role: {
             field: 'role',
-            type: DataTypes.ENUM('user', 'admin'),
+            type: DataTypes.ENUM('USER', 'ADMIN'),
             allowNull: false,
             defaultValue: 'USER'
         }

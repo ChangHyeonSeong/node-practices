@@ -2,7 +2,7 @@ const { reset } = require('nodemon');
 const logger = require('../logging');
 
 module.exports = {
-    error404: function(req, res) {
+    error404: function(req, res, error) {
         if(req.accepts('html')){
             res.status(404).render('error/404');
             return;
