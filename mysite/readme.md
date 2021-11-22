@@ -8,10 +8,10 @@
 [mysite] $ npm i express -session
 [mysite] $ npm i sequelize
 [mysite] $ npm i dotenv  o
-[mysite] $ npm i multer
+[mysite] $ npm i multer o
 [mysite] $ npm i winston o
 [mysite] $ npm i winston-daily-rotate-file o
-[mysite] $ npm i moment
+[mysite] $ npm i moment o
 
 [mysite] $ npm i -D nodemon o
 [mysite] $ npm i -D mocha
